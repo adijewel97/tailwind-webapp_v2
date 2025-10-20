@@ -1,0 +1,19 @@
+{
+  "name": "tailwind-webapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:css": "npx tailwindcss -i ./src/main/webapp/assets/css/input.css -o ./src/main/webapp/assets/css/style_tailwind_adis.css --watch",
+    "dev:reload": "node livereload-server.js",
+    "dev:tomcat": "mvn tomcat7:run",
+    "dev": "concurrently \"npm run dev:css\" \"npm run dev:reload\" \"npm run dev:tomcat\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.0.0",
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.14"
+  }
+}
