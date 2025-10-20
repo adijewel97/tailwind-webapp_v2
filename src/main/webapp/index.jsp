@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    if (session == null || session.getAttribute("username") == null) {
+        response.sendRedirect(request.getContextPath() + "/views/templet/login.jsp");
+        return;
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,20 +86,20 @@
     <!-- Menu -->
     <div class="group flex items-center h-12 px-4 rounded-md cursor-pointer 
                 hover:bg-gray-200 transition-all duration-200">
-        <i class="fa fa-home text-base text-black group-hover:text-orange-600"></i>
+        <i class="fa fa-tachometer text-base text-black group-hover:text-orange-600"></i>
         <span class="sidebar-text text-[15px] ml-4 text-black group-hover:text-orange-600">
-            Home
+            Dasboard
         </span>
     </div>
 
     <!-- Bookmark -->
-    <div class="group flex items-center h-12 px-4 rounded-md cursor-pointer 
+    <!-- <div class="group flex items-center h-12 px-4 rounded-md cursor-pointer 
                 hover:bg-gray-200 transition-all duration-200">
         <i class="fa fa-bookmark-o text-base text-black group-hover:text-orange-600"></i>
         <span class="sidebar-text text-[15px] ml-4 text-black group-hover:text-orange-600">
             Bookmark
         </span>
-    </div>
+    </div> -->
 
     <!-- Chatbox (parent) -->
     <div class="w-full">
@@ -160,13 +168,15 @@
     </div>
 
     <!-- Logout -->
-    <div class="group flex items-center h-12 px-4 rounded-md cursor-pointer 
-                hover:bg-gray-200 transition-all duration-200">
+    <a href="${pageContext.request.contextPath}/LogoutServlet"
+        class="group flex items-center h-12 px-4 rounded-md cursor-pointer 
+            hover:bg-gray-200 transition-all duration-200">
         <i class="fa fa-sign-out text-base text-black group-hover:text-orange-600"></i>
         <span class="sidebar-text text-[15px] ml-4 text-black group-hover:text-orange-600">
             Logout
         </span>
-    </div>
+    </a>
+
 
   </div>
 
